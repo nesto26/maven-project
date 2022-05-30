@@ -12,9 +12,6 @@ pipeline {
       
     stages {
      
-     
-
-
      stage('Build images') {
             steps {
                 sh '''
@@ -38,12 +35,13 @@ pipeline {
       stage('Docker Login') {
 
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				sh '''echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'''
 
         
 			}
 		}
-     stage('Docker push ') {
+
+      stage('Docker push ') {
             steps {
                sh '''
               docker push devopseasylearning2021/lesly:201 
