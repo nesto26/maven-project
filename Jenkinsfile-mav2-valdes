@@ -5,7 +5,7 @@ pipeline {
             }
 
 environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+		DOCKERHUB_CREDENTIALS=credentials('my-dockerhub')
 }
 
 
@@ -68,7 +68,7 @@ stage('install') {
 stage('build') {
             steps {
                  sh '''
-                 sudo docker build -t devopseasylearning2021/valdes:3.6.3 .
+                 sudo docker build -t kewiv/valdes:3.6.3 .
                 '''
             }
         }
@@ -88,7 +88,7 @@ stage('Push') {
 
 			steps {
 				sh '''
-                 docker push devopseasylearning2021/valdes:3.6.3
+                 docker push kewiv/valdes:3.6.3
                 '''
 			}
 		}
